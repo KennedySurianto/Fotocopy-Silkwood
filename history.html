@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History - Fotocopy@Silkwood</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+        document.documentElement.classList.add('dark')
+        } else {
+        document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="flex items-center justify-between px-4 py-3 border-b dark:border-gray-700">
+        <h1 class="text-lg font-bold">Transaction History</h1>
+        <button id="themeToggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-800">🌙</button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4 space-y-4">
+        <!-- Transaction 1 -->
+        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md">
+            <p class="font-semibold">📄 Print Service</p>
+            <p class="text-sm text-gray-700 dark:text-gray-300">File: <em>document.pdf</em></p>
+            <p class="text-sm text-green-600 dark:text-green-400 font-bold">Ready - IDR 5,000</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">01 Oct 2025, 14:30</p>
+        </div>
+
+        <!-- Transaction 2 -->
+        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md">
+            <p class="font-semibold">📄 Print Service</p>
+            <p class="text-sm text-gray-700 dark:text-gray-300">File: <em>assignment.docx</em></p>
+            <p class="text-sm text-blue-600 dark:text-blue-400 font-bold">Completed - IDR 5,000</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">30 Sep 2025, 16:50</p>
+        </div>
+
+        <!-- Transaction 3 -->
+        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md">
+            <p class="font-semibold">📄 Print Service</p>
+            <p class="text-sm text-gray-700 dark:text-gray-300">File: <em>resume.pdf</em></p>
+            <p class="text-sm text-green-600 dark:text-blue-400 font-bold">Completed - IDR 15,000</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">29 Sep 2025, 09:15</p>
+        </div>
+
+        <!-- Transaction 4 -->
+        <div class="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md">
+            <p class="font-semibold">📄 Print Service</p>
+            <p class="text-sm text-gray-700 dark:text-gray-300">File: <em>project_report.pdf</em></p>
+            <p class="text-sm text-blue-600 dark:text-blue-400 font-bold">Completed - IDR 7,500</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">28 Sep 2025, 11:20</p>
+        </div>
+    </main>
+
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="fixed bottom-0 left-0 w-full flex justify-around bg-white dark:bg-gray-800 border-t dark:border-gray-700 py-2">
+        <a href="index.html" class="flex flex-col items-center">
+            <span>📄</span>
+            <span class="text-xs">Print</span>
+        </a>
+        <a href="stationery.html" class="flex flex-col items-center">
+            <span>🛒</span>
+            <span class="text-xs">Stationery</span>
+        </a>
+        <a href="history.html" class="flex flex-col items-center text-blue-600">
+            <span>📜</span>
+            <span class="text-xs">History</span>
+        </a>
+        <a href="profile.html" class="flex flex-col items-center">
+            <span>👤</span>
+            <span class="text-xs">Profile</span>
+        </a>
+    </nav>
+
+    <!-- Script -->
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        if (document.documentElement.classList.contains('dark')) {
+            localStorage.theme = 'dark'; themeToggle.textContent = '☀️';
+        } else {
+            localStorage.theme = 'light'; themeToggle.textContent = '🌙';
+        }
+        });
+        if (document.documentElement.classList.contains('dark')) {
+        themeToggle.textContent = '☀️';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotocopy@Silkwood</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Theme toggle persistence
+        if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+        document.documentElement.classList.add('dark')
+        } else {
+        document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="flex items-center justify-between px-4 py-3 border-b dark:border-gray-700">
+        <h1 class="text-lg font-bold">Fotocopy@Silkwood</h1>
+        <button id="themeToggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-800">
+        🌙
+        </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-4 space-y-6">
+        <!-- Print Section -->
+        <section class="p-4 rounded-xl shadow-md bg-gray-100 dark:bg-gray-800">
+        <h2 class="text-md font-semibold mb-2">📄 Print Documents</h2>
+        <a href="upload.html" 
+            class="block text-center w-full py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+            Upload & Print
+        </a>
+        </section>
+
+        <!-- Stationery Section -->
+        <section class="p-4 rounded-xl shadow-md bg-gray-100 dark:bg-gray-800">
+        <h2 class="text-md font-semibold mb-2">🛒 Browse Stationeries</h2>
+        <div class="grid grid-cols-2 gap-3">
+            <a href="stationery.html" class="p-3 rounded-lg bg-white dark:bg-gray-700 text-center shadow block">
+            ✏️ Pens
+            </a>
+            <a href="stationery.html" class="p-3 rounded-lg bg-white dark:bg-gray-700 text-center shadow block">
+            📓 Notebooks
+            </a>
+            <a href="stationery.html" class="p-3 rounded-lg bg-white dark:bg-gray-700 text-center shadow block">
+            📐 Rulers
+            </a>
+            <a href="stationery.html" class="p-3 rounded-lg bg-white dark:bg-gray-700 text-center shadow block">
+            🖍️ Markers
+            </a>
+        </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section class="p-4 rounded-xl shadow-md bg-gray-100 dark:bg-gray-800">
+        <h2 class="text-md font-semibold mb-2">👤 My Profile</h2>
+        <a href="profile.html" class="block text-sm text-gray-700 dark:text-gray-300 hover:underline">
+            Signed in as <strong>Kennedy Surianto</strong>
+        </a>
+</section>
+
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="fixed bottom-0 left-0 w-full flex justify-around bg-white dark:bg-gray-800 border-t dark:border-gray-700 py-2">
+        <a href="index.html" class="flex flex-col items-center text-blue-600">
+            <span>📄</span>
+            <span class="text-xs">Print</span>
+        </a>
+        <a href="stationery.html" class="flex flex-col items-center">
+            <span>🛒</span>
+            <span class="text-xs">Stationery</span>
+        </a>
+        <a href="history.html" class="flex flex-col items-center">
+            <span>📜</span>
+            <span class="text-xs">History</span>
+        </a>
+        <a href="profile.html" class="flex flex-col items-center">
+            <span>👤</span>
+            <span class="text-xs">Profile</span>
+        </a>
+    </nav>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        if (document.documentElement.classList.contains('dark')) {
+            localStorage.theme = 'dark';
+            themeToggle.textContent = '☀️';
+        } else {
+            localStorage.theme = 'light';
+            themeToggle.textContent = '🌙';
+        }
+        });
+
+        // Set correct icon on load
+        if (document.documentElement.classList.contains('dark')) {
+        themeToggle.textContent = '☀️';
+        } else {
+        themeToggle.textContent = '🌙';
+        }
+    </script>
+</body>
+</html>
